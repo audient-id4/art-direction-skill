@@ -50,6 +50,43 @@ answer it properly before. If a decision cannot survive the question "does
 this help someone use or understand this thing better", it is decoration with
 a manifesto attached.
 
+## Register
+
+Decide this before anything else, because it calibrates every rule below.
+
+**The default register is a modern product site that is obviously well made
+— not an experiment.** Generous space, confident type, restrained colour,
+surfaces that round softly, motion that is short and physical. The kind of
+page people describe as expensive without being able to say why.
+
+Distinctiveness is not achieved by breaking that register. It comes from
+**one real difference, executed calmly, with everything around it ordinary
+and excellent.** Usually the difference is committing to the product's own
+material where every competitor ships a stock illustration.
+
+Read the rest of this skill through that. The prohibitions exist to stop
+defaults arriving unexamined, not to force unusual answers:
+
+- Cards are fine. Three cards are fine. Make them unequal and give each one
+  real content, and the "no template shapes" rule is satisfied — the failure
+  was never the card, it was three interchangeable ones.
+- Rounded corners are fine. A radius system with roles is the requirement;
+  hard corners everywhere is a statement, and a statement is not the goal.
+- A hero with a headline and a button is fine, provided the most valuable
+  thing on the page is beside it rather than below it.
+
+Two failures, and the second is the one that keeps happening:
+
+*Template* — nothing was decided, so defaults decided it. Anonymous.
+
+*Costume* — strangeness was pursued as proof of effort. Hard edges
+everywhere, a clever scroll mechanic, pricing rendered as sculpture. It
+reads as designed, which is not the same as good, and it costs the reader
+something every time.
+
+**Aim between them and closer to the first.** A page that looks like a very
+good version of a normal thing beats a page that looks like an argument.
+
 ## The five passes
 
 **Pass 1 — Discover.** Gather references, find the artifact, write
@@ -427,6 +464,29 @@ compositions with no container at all.
 A component exists because the content demands it. If a library offers it
 and the content does not need it, that is not a reason.
 
+### Show the output
+
+If the product makes something, **the thing it makes goes in the first
+screen** — bigger than the headline, before any claim about it. A world, a
+chart, a track, a document, a room. Not a screenshot of the tool that made
+it, and not an illustration standing in for it.
+
+The tool itself appears once, further down, as evidence that it exists. It
+is proof, not the argument.
+
+**Generate it rather than illustrating it.** The reflex here is to specify a
+beautiful custom render — and then either it never gets made, or a stock
+approximation lands in its place and the page becomes every other page with
+better art. Build the real thing instead: the actual geometry, the actual
+chart from actual numbers, the actual document. It is usually less work than
+commissioning the render, it cannot be bought by a competitor, and it can
+move.
+
+That last part matters. A rendered image is the same image on every visit; a
+generated one can assemble itself in the first two seconds and respond to the
+cursor. For a product about making things, *watching one get made* is the
+entire pitch, and no illustration delivers it.
+
 ### Imagery, icons, emoji
 
 An image earns its place by carrying an idea. Decorative stock, abstract
@@ -656,6 +716,7 @@ is distinctive and unreadable has failed at the only job it had.
 - `reference/escapes.md` — replacements for the patterns worth avoiding
 - `reference/stack.md` — what to build on, and what CSS already does
 - `examples/REJECTED-blocksmith.md` — a coherent design about the wrong thing
+- `examples/CORRECTED-blocksmith.md` — the same brief done again, from the outcome pool
 - `templates/ART-DIRECTION.md` — the artifact to fill in
 - `examples/ART-DIRECTION.example.md` — a completed one
 
