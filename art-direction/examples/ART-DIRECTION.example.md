@@ -6,6 +6,15 @@ whole system falls out of one object.
 
 Values live in `DESIGN-TOKENS.example.md`.
 
+> **Read this alongside `REJECTED-blocksmith.md`.** The artifact here — a
+> patch bay — comes from the **apparatus** pool, and that is correct *for
+> this product*: what a band is buying is a room at an hour, the transaction
+> itself, and the apparatus of rehearsal rooms is the shortest route to
+> saying so. Do not read it as a general rule. Where the value is what the
+> user *makes* rather than what they get done, apparatus produces a coherent
+> design about the wrong thing — which is exactly what the rejected example
+> is.
+
 ---
 
 ## Inspiration map

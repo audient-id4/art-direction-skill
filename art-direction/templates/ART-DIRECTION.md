@@ -5,6 +5,23 @@ pass 3. Keep it in the repo next to the code it governs.
 
 Values live in `DESIGN-TOKENS.md`. This file is intent.
 
+Write in mechanisms, not adjectives. "Premium", "immersive", "futuristic",
+"elegant" and "clean" are conclusions dressed as arguments. Any sentence here
+that cannot be checked against the built page is not a design decision.
+
+---
+
+## Emotional purchase
+
+What this person gets that they could not get otherwise — in their words,
+not the product's. One sentence, written before anything else.
+
+> 
+
+And: what did they love about this **before they got good at it**?
+
+> 
+
 ---
 
 ## Inspiration map
@@ -36,8 +53,44 @@ transfers — not the mood.
 
 ## Artifact
 
-The physical object, document or working thing this design steals its logic
-from, and which of its properties transfer.
+Name a candidate from **each** pool before choosing. The method leans toward
+apparatus; correct for it deliberately.
+
+| Pool | Candidate | What it would give |
+|---|---|---|
+| **Apparatus** — how the work is done |  |  |
+| **Outcome** — what gets made, and how having made it feels |  |  |
+
+**Chosen, and which pool it came from:**
+
+> 
+
+If the emotional purchase above is about *making something* and apparatus
+won, justify it here or go back.
+
+**Properties that transfer** (logic, not skeuomorphic surface):
+
+> 
+
+---
+
+## Soul test
+
+- [ ] It does not make a product about making things feel like a
+      professional tool
+- [ ] It expresses the user's emotion, not the maker's craft
+- [ ] **Substitution:** strip the product name, swap the domain nouns — does
+      the design still fit another industry?
+      > Swap tried:
+      > Result:
+- [ ] It explains why anyone wants this, not only how it is produced
+- [ ] Logo cropped, it does not read as CAD, enterprise or documentation
+      software (unless it is one)
+
+## Anti-concept test
+
+Would this still be the right design if nobody ever saw your portfolio?
+Name any part that fails, and remove it.
 
 > 
 
@@ -95,8 +148,22 @@ there is one. Gradients: none, or exactly one and what it is doing.
 
 ## 9. Interaction language
 
-How this interface answers being touched. Entrance, hover, press, transition,
-state change. Which are springs, which are eased, and why.
+Motion is required and comes from the metaphor. All three, or the design has
+declined to say how this world behaves.
+
+| | From the metaphor | Where it appears |
+|---|---|---|
+| **Arrival** — how information enters |  |  |
+| **Transformation** — how interaction feels |  |  |
+| **Feedback** — how the interface answers |  |  |
+
+Every major section carries at least one motion behaviour that means
+something. List them against the sections:
+
+> 
+
+Springs for user-initiated, eased for system-initiated. Reduced-motion
+equivalent for each.
 
 > 
 
@@ -150,3 +217,18 @@ usability or brand memory does it improve? A decision that improves none of
 them comes out.
 
 > 
+
+---
+
+## Score
+
+Out of ten each. **Anything under 9 goes back to pass 1.** When a score is
+low, find the missing idea — never add decoration to raise it.
+
+| | Score | If low, what is missing |
+|---|---|---|
+| Product truth — the natural interface for *this* product |  |  |
+| Emotional truth — communicates why someone wants it |  |  |
+| Recognition — identifiable with the logo cropped |  |  |
+| Restraint — would removing 20% improve it |  |  |
+| Motion — interaction reveals meaning |  |  |

@@ -50,7 +50,7 @@ answer it properly before. If a decision cannot survive the question "does
 this help someone use or understand this thing better", it is decoration with
 a manifesto attached.
 
-## The three passes
+## The five passes
 
 **Pass 1 — Discover.** Gather references, find the artifact, write
 `ART-DIRECTION.md`. No component code.
@@ -77,6 +77,30 @@ Worked examples in `examples/`.
 ---
 
 ## Pass 1 — Discover
+
+### Start with what is actually being bought
+
+Before references, before the artifact, write one sentence: **what does this
+person get, emotionally, that they could not get otherwise?**
+
+In their words, not the product's. Not the category, not the feature list.
+
+*Not:* "world authoring tools."
+*Yes:* "the ability to turn a place that exists in their head into somewhere
+other people can walk around."
+
+*Not:* "rehearsal room booking."
+*Yes:* "knowing the band can actually play on Thursday, before the argument
+about Thursday starts."
+
+Everything downstream is chosen to express this sentence. A metaphor that
+does not is a metaphor about something else, however well made.
+
+Ask it a second way, because the first answer is usually the expert's answer:
+**what did they love about this before they got good at it?** People arrive
+at world-building for impossible places, not for grid snapping. They become
+precise later. A design that speaks only to the expert has removed the reason
+anyone became one.
 
 ### Cast the net first: the inspiration map
 
@@ -107,11 +131,45 @@ is range wide enough that the survivor was chosen rather than settled for.
 nothing to push against. So do not start from taste. Start from the thing
 itself.
 
-From the twelve references, promote **one** to primary: the physical
-artifact, historical document or working object whose logic the whole design
-will follow. The other eleven stay available as sources for individual
-details, but only one sets the system — two competing metaphors produce a
-design that argues with itself.
+### Two pools, and the bias between them
+
+Candidate artifacts fall into two kinds, and they are not interchangeable.
+
+**Apparatus** — the professional instrument of the domain. The ledger, the
+patch bay, the drafting mylar, the track sheet. How the work gets done.
+
+**Outcome** — what the person makes, and what it feels like to have made it.
+The finished world, the room full of sound, the shelf of things that did not
+exist last week.
+
+**The method is biased toward apparatus, and you must correct for it.** Ask
+for a physical object belonging to a domain and the professional instrument
+is what surfaces first — it is concrete, photogenic and easy to name. Follow
+that reflex and every product becomes an instrument panel.
+
+That is right when the product *is* an instrument, where the job itself is
+the value and precision is what the person is buying. It is wrong whenever
+the value is what the user **makes**, because then the apparatus is the least
+interesting thing in the room and the design ends up celebrating the process
+instead of the result.
+
+A world-building platform designed from drafting mylar becomes CAD software.
+Coherent, well made, and about the wrong thing: it speaks of tolerance and
+revision letters to someone who came to build a floating island. See
+`examples/REJECTED-blocksmith.md` — a failure worth reading, because nothing
+about it looks like a mistake from inside.
+
+So name at least one candidate from **each** pool before choosing, and write
+down which pool won and why. If the emotional purchase you wrote is about
+making something, the outcome pool leads and the apparatus may supply
+details — never the reverse.
+
+### Promote one
+
+From the twelve references, promote **one** to primary: the artifact whose
+logic the whole design will follow. The other eleven stay available as
+sources for individual details, but only one sets the system — two competing
+metaphors produce a design that argues with itself.
 
 Steal its visual logic, not its skeuomorphic surface.
 
@@ -151,6 +209,40 @@ decided it.
    and where it opens.
 8. **Interaction language** — how this interface responds to being touched.
 9. **Signature detail** — the one thing that is not standard.
+
+### The soul test
+
+Run this the moment a metaphor is chosen, before a single token is written.
+A metaphor is not good because it is sophisticated, rare or intellectually
+satisfying. It is good because it expresses the sentence you wrote first.
+
+Reject it if any of these is true:
+
+- **It makes the product feel like a professional tool when the product is
+  about making things.** Precision is a virtue the design may carry. It is
+  not the reason anyone showed up.
+- **It substitutes the maker's craft for the user's emotion.** A design that
+  is chiefly enjoyable to the person who made it has an audience of one.
+- **It would describe another industry equally well.** Run the substitution:
+  strip the product name and swap the domain nouns — worlds for buildings,
+  tracks for invoices. If the design still fits, the metaphor was about the
+  apparatus, and apparatus is shared across industries. That is precisely why
+  it felt so clean.
+- **It explains how the thing is produced and forgets why anyone wants it.**
+
+And the plain version: **crop the logo, show it to someone. If it reads as
+CAD, enterprise software or a documentation tool — and the product is not one
+of those — the metaphor is wrong.** Not underdeveloped. Wrong. Go back to the
+outcome pool.
+
+### The anti-concept test
+
+> Would this still be the right design if nobody ever saw your portfolio?
+
+Where the answer is no, that part is there to be admired rather than to work.
+Remove it. No decision in an interface exists to impress another designer,
+and the ones that do are always the ones that survive review — they are the
+most defensible and the least useful.
 
 ### The rejection log
 
@@ -352,6 +444,26 @@ is, and it is worth checking for explicitly.
 
 ### Motion
 
+**Motion is required, not optional, and it comes from the metaphor.** A
+static page has declined to answer how this world behaves. Define three
+things in `ART-DIRECTION.md` and implement all three:
+
+**Arrival** — how information enters. From the metaphor, not from a library
+default. A world assembling from fragments. Layers uncovering in order.
+Terrain generating outward from a seed. Parts snapping into a structure.
+
+**Transformation** — how interaction feels. Terrain deforming. A coordinate
+system expanding. A hidden layer lifting. Moving between two states of the
+same place.
+
+**Feedback** — how the interface answers. Objects reacting to each other.
+Connections completing. A rule becoming briefly visible.
+
+Every major section needs at least one motion behaviour that means something.
+Not decoration on every section — *meaning* on each one. A section whose only
+motion is a fade-up has not been designed, and a page where every section
+fades up on scroll is a template with a plugin installed.
+
 Motion explains a change of state. It is not proof that CSS is working.
 
 Ask what physically happens: does the element arrive, expand from its
@@ -462,6 +574,49 @@ AI-generated" is not a question anyone answers honestly about their own work.
 Then the removal test: name the 20% you would cut. If cutting it would make
 the design stronger, it was decoration. Cut it now.
 
+### Simplicity
+
+The interface must not communicate *look how considered this design is*. It
+must communicate *this product makes a complicated thing feel simple*.
+
+Those two produce very different pages from the same concept. The first
+shows the system: the grid, the apparatus, the craft. The second shows the
+result and keeps the system underneath, load-bearing and mostly invisible.
+
+Remove anything that exists only to demonstrate skill. What should be
+noticed is clarity, confidence, emotion and quality — not grids, effects and
+concepts. A viewer who can describe your concept back to you after ten
+seconds is looking at the concept instead of the product.
+
+### Score it
+
+Rate each out of ten. **Anything under 9 goes back.**
+
+| | |
+|---|---|
+| **Product truth** | Does this feel like the natural interface for *this* product, rather than a good interface applied to it? |
+| **Emotional truth** | Does it communicate why someone wants this? |
+| **Recognition** | Identifiable with the logo cropped out? |
+| **Restraint** | Would removing 20% improve it? |
+| **Motion** | Does interaction reveal meaning, or just move? |
+
+When a score is low, do not add decoration to raise it. **Find the missing
+idea.** A low emotional-truth score is never fixed by a gradient; it means
+the concept is about the wrong thing and pass 1 has to be re-entered.
+
+### Language
+
+Write reasoning in mechanisms, never adjectives. "Premium", "futuristic",
+"immersive", "elegant" and "clean" are conclusions dressed as arguments — they
+describe how you hope it will be received, and they justify anything.
+
+*Not:* "a premium, immersive hero."
+*Yes:* "the world renders before any text, so the first thing read is the
+product's output rather than a claim about it."
+
+If a sentence in `ART-DIRECTION.md` cannot be checked against the built page,
+it is not a design decision.
+
 Then the recognition test. Crop the logo out of a screenshot. Could someone
 tell this apart from a hundred other sites? If not, the concept did not
 survive pass 2 — go back to the document and find where it was dropped.
@@ -500,6 +655,7 @@ is distinctive and unreadable has failed at the only job it had.
 - `reference/typography.md` — type directions, open alternatives, licensing
 - `reference/escapes.md` — replacements for the patterns worth avoiding
 - `reference/stack.md` — what to build on, and what CSS already does
+- `examples/REJECTED-blocksmith.md` — a coherent design about the wrong thing
 - `templates/ART-DIRECTION.md` — the artifact to fill in
 - `examples/ART-DIRECTION.example.md` — a completed one
 
