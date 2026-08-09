@@ -214,9 +214,20 @@ decision; even padding everywhere is the absence of one.
 
 ### Typography
 
-Type carries more of the character than colour does, and it is the first
-thing to go generic. See `reference/typography.md` for concrete directions
-and why each one reads the way it does.
+Type is the voice of the product, and it is the first thing to go generic. A
+face is correct only when it reinforces the metaphor — never because it is
+popular, because a framework ships it, or because it looks clean in
+isolation.
+
+Choose in three steps: name the **role** (display / body / interface / data),
+name the **personality** (neutral, warm, technical, editorial, luxurious,
+experimental), then take the **smallest system that works** — one display
+family plus one text family, mono only if the concept carries technical
+values.
+
+`reference/typography.md` has four reference directions with the canonical
+faces for each, free equivalents that hit the same brief, and the licensing
+rules that decide which you can actually ship.
 
 Rules that hold regardless of face:
 
@@ -397,6 +408,7 @@ AI-generated" is not a question anyone answers honestly about their own work.
 | Contamination rows matching | ≤ 2 |
 | Elements breaking the grid | ≥ 1, deliberate |
 | Font families | ≤ 2, plus mono if the concept needs it |
+| Display face swapped for a system font | identity visibly degrades |
 | Icons with an adjacent label saying the same thing | 0 |
 | Emoji used as spacing or decoration | 0 |
 | Values not traceable to the document | 0 |
