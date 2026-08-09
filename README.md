@@ -131,6 +131,7 @@ art-direction/
   examples/DESIGN-TOKENS.example.md
   reference/typography.md           directions, open alternatives, licensing
   reference/escapes.md              replacements for patterns worth avoiding
+  reference/stack.md                what to build on, and what CSS already does
 ```
 
 `SKILL.md` loads on invocation; reference files load only when needed, so the

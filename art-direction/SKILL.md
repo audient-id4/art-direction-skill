@@ -230,6 +230,13 @@ Template: `templates/DESIGN-TOKENS.md`.
 This is where concepts die. Implementation pressure pulls every value back
 toward the default, one reasonable-looking shortcut at a time. Two defences:
 
+Pick the stack before the first component. It does not make a design good —
+decisions do, and everything here is reachable in plain HTML and modern CSS.
+What it decides is *cost*: on the wrong stack, springs, reduced-motion
+variants, optical font loading and token traceability all become work that
+gets cut under deadline. `reference/stack.md` has the default, when to use
+something else, and what modern CSS already does without a library.
+
 **Every value traces to the document.** If a number cannot be justified from
 `ART-DIRECTION.md`, it is a default that slipped in.
 
@@ -490,8 +497,9 @@ is distinctive and unreadable has failed at the only job it had.
 
 ## Reference
 
-- `reference/typography.md` — concrete type directions and what each conveys
+- `reference/typography.md` — type directions, open alternatives, licensing
 - `reference/escapes.md` — replacements for the patterns worth avoiding
+- `reference/stack.md` — what to build on, and what CSS already does
 - `templates/ART-DIRECTION.md` — the artifact to fill in
 - `examples/ART-DIRECTION.example.md` — a completed one
 
