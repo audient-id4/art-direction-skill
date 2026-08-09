@@ -57,14 +57,19 @@ jump is.
 
 ## Reference directions
 
-The named references are the canonical faces for each direction — worth
-knowing even when the budget will not reach them, because they define what
-the category *is*. Beside each, free families that hit the same brief.
+A reference face describes the emotional direction. What ships should
+preserve its rhythm, density, personality and readability — not imitate its
+letterforms.
 
-Licensing reality: almost every reference face below is commercial, and web
-licences are sold separately from desktop ones, usually priced by traffic. A
-desktop licence does not permit self-hosting a webfont. See **Licensing**
-below before shipping any of them.
+The named references are the canonical faces for each direction: worth
+knowing even when the budget will not reach them, because they define what
+the category *is*. Beside each, open families that hit the same brief.
+
+**Commercial typefaces are references, never automatic dependencies.**
+Before choosing any face, check that a licence exists, that it covers
+webfonts, that self-hosting is permitted, and that the project's budget
+carries it. A visually perfect font that cannot legally ship is not a valid
+choice — see **Licensing** below.
 
 ### Editorial / archival / cultural
 
@@ -82,7 +87,11 @@ involving reading, judgement, archive or authorship.
 - **Spectral** — warmer, slightly more literary than Source Serif.
 - **Instrument Serif** — display only, high contrast, no text cut. Pair with
   a separate body face.
+- **Libre Baskerville** — wide, sturdy, drawn for screen body text.
 - **Gambetta** (Fontshare) — calligraphic contrast, closer to Lyon's warmth.
+- **Cormorant Garamond** — **display and editorial accent only**. Beautiful
+  and genuinely fragile: the strokes thin out badly below roughly 40px and it
+  falls apart in interface text. Never the body face.
 
 ### Precision / engineering / tools
 
@@ -98,6 +107,9 @@ should read as load-bearing.
 - **Geist** — geometric, tight, technical.
 - **Archivo** — variable width, which matters: a condensed cut lets a long
   headline keep the size relationship you designed.
+- **IBM Plex Sans** — institutional, slightly quirky, a real voice.
+- **Manrope** — variable, geometric, tighter than most free grotesques.
+- **Source Sans 3** / **Work Sans** — quiet workhorses, no opinions.
 - **Inter** — legitimately belongs in this category. Using it *here*, on
   purpose, is different from using it everywhere by default.
 
@@ -116,7 +128,26 @@ Departure Mono
 - **Chillax** (Fontshare) — soft geometric, Whyte-adjacent.
 - **Bricolage Grotesque** — variable width and optical size, deliberately
   irregular. Its flaws are the point.
-- **Martian Mono** — wide mono, more display than text.
+- **Instrument Sans** — variable width, clean but not anonymous.
+- **Oxanium** — **geometric sci-fi / gaming / industrial display**, not
+  general-purpose futuristic. Very specific voice; on the wrong product it
+  reads as a games launcher. Display only.
+
+### Mono / technical layer
+
+Data, code, machine feeling. Not only for code — for values, timestamps, IDs,
+anything scanned in a column, where tabular figures actually align. A mono
+beside a serif is an instant two-voice system with no hierarchy work needed.
+
+*Open families:*
+- **JetBrains Mono** — tall x-height, very legible small.
+- **IBM Plex Mono** — warmer, pairs with the rest of the Plex family.
+- **Geist Mono** — tight and technical.
+- **Commit Mono** — neutral, adjustable, good as a text mono.
+- **Source Code Pro** — conservative, reliable.
+- **Recursive Mono** — variable, with a casual-to-linear axis; unusual range.
+- **Departure Mono** — pixel grid, a hard aesthetic commitment.
+- **Martian Mono** — wide, more display than text.
 
 ### Luxury / premium
 
@@ -173,6 +204,21 @@ headline.
 
 ## Licensing
 
+Typography has to survive implementation. Never assume a face is available,
+and never recommend one without knowing whether it is licensed for web use.
+
+Four checks before choosing:
+
+1. Does a licence exist for this project?
+2. Does it cover **webfonts**, not just desktop?
+3. Is **self-hosting** permitted, or is a foundry-hosted CDN required?
+4. Does the budget carry it?
+
+Prefer open-source families, faces with clear web licences, and anything
+self-hostable. A visually perfect font that cannot legally ship is not a
+valid choice — it is a decision that will be reversed under deadline, by
+someone substituting whatever is nearest.
+
 The most common way a client site acquires a legal problem is a webfont
 downloaded from a free-fonts aggregator that had no right to distribute it.
 The second most common is self-hosting a face the studio owns a *desktop*
@@ -201,12 +247,22 @@ connection, is the only impression most visitors get.
 
 ## Typography audit
 
-- Is the choice explained in `ART-DIRECTION.md`?
+**Choice**
+- Is it explained in `ART-DIRECTION.md`?
+- Is it based on personality or on popularity?
 - Are display and body roles clearly separated?
+- Is there a third family with no distinct job?
+
+**Setting**
 - Is the measure readable?
 - Is tracking intentional at every size, or inherited?
 - Do weights carry hierarchy rather than decorate?
-- Is there a third family with no distinct job?
+
+**Implementation**
+- Is the face legally usable for the web, on this project?
+- Is it self-hosted or served from a provider the licence names?
+- Is the fallback metrically compatible, so nothing shifts on load?
+- Does the layout still hold if the face never arrives?
 
 Then the one that decides it:
 

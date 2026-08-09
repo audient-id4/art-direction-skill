@@ -1,52 +1,89 @@
-# art-direction
+# design-skills
 
-A Claude Code skill for designing interfaces that have a visual language of
-their own, instead of assembling one out of defaults.
+Two Claude Code skills for designing products that decide something, instead
+of assembling themselves out of defaults.
 
-## The problem
+- **`ux-direction`** — what the person is doing, and how the system helps.
+- **`art-direction`** — how that meaning becomes a visual language.
 
-Generated interfaces rarely fail by being ugly. They fail by being
-anonymous — Inter, `rounded-xl`, a soft shadow, three equal cards, a violet
-gradient, a hero with a subtitle and a button. Every decision is defensible.
-The whole thing is forgettable.
+They are deliberately separate. Not because of length: because they answer
+different questions, are invoked at different moments, and are judged by
+different criteria. A skill that tried to be both would be summoned for both
+and sharp at neither.
 
-The cause is not bad taste. It is that no decision was ever made: defaults
-filled every slot before anyone asked what the thing should feel like.
+## The problem each one solves
 
-## What this does differently
+**Generated interfaces rarely fail by being ugly. They fail by being
+anonymous.** Inter, `rounded-xl`, a soft shadow, three equal cards, a violet
+gradient, a hero with a subtitle and a button. Every decision defensible, the
+whole thing forgettable. The cause is not bad taste — it is that no decision
+was ever made. Defaults filled every slot before anyone asked what the thing
+should feel like.
 
-Most "make it look good" prompts are lists of prohibitions. Forty things not
-to do produces an interface that avoids those forty things and is otherwise
-arbitrary, because nothing in the list generates anything.
+**And visual quality without experience quality is decoration.** An interface
+that looks considered and does not understand what someone came to do has
+failed at its only job. Beautiful empty states that say "No items found".
+Errors that say "Something went wrong". A primary action three clicks deep
+because the navigation mirrored the database.
 
-This skill adds the three parts a prohibition list is missing.
+## What makes these different from a list of rules
 
-**A way to generate a concept.** The visual language is derived from the
-subject, not from taste. Name a physical artifact that belongs to the domain
-and steal its logic: a ticketing product takes perforation and seat maps from
-ticket stubs; a finance tool takes hairline rules and tabular figures from the
-ledger. The artifact supplies geometry, colour semantics and vocabulary at
-once, already coherent — which is the thing taste alone cannot fake.
+Most "make it good" prompts are prohibitions. Forty things not to do produces
+work that avoids those forty things and is otherwise arbitrary, because
+nothing in the list generates anything. Three things are missing, and they
+are what these add.
 
-**Binding artifacts.** Before any component exists, pass 1 writes
-`ART-DIRECTION.md` (intent, and what was rejected) and pass 1.5 writes
-`DESIGN-TOKENS.md` (the values that intent produced, each with its role).
-Pass 2 traces every value back to them. Pass 3 audits against them. Without
-written documents a concept evaporates the first time implementation gets
-difficult, and the critique pass has nothing to judge.
+**A way to generate.** In `art-direction`, the visual language is derived from
+the subject rather than from taste: name a physical artifact belonging to the
+domain and steal its logic. A ticketing product takes perforation and seat
+maps from ticket stubs. The artifact supplies geometry, colour semantics and
+vocabulary at once, already coherent — which is what taste alone cannot fake.
+In `ux-direction`, the mental model must **forbid** something; a model that
+permits every architecture has decided nothing.
 
-**An audit you can actually run.** "Does this look AI-generated?" is not a
-question anyone answers honestly about their own work. So the checks are
-countable: distinct radius values, share of sections that are cards, gradient
-count, values not traceable to the documents. The contamination check names
+**Binding artifacts.** Documents get written to disk before any component
+exists, and later passes trace back to them. Without that, a concept
+evaporates the first time implementation gets difficult and the critique pass
+has nothing to judge.
+
+**Audits that can be answered.** "Does this look AI-generated?" and "is it
+clear to a first-time user?" are not questions anyone answers honestly about
+their own work. So the checks count things: distinct radius values, share of
+sections that are cards, clicks to primary value, decisions before first
+success, errors with a stated recovery path. The contamination check names
 the actual signature of Linear, Stripe, shadcn and five others, so the
-question becomes *which of these traits did I borrow* rather than *does this
-feel derivative*.
+question becomes *which of these traits did I borrow*.
 
-**Proof the direction was chosen.** Pass 1.5 requires three real directions
-from the concept, one picked and two killed with reasons. A first idea that
-happens to be good is indistinguishable, in the finished product, from one
-that was never tested.
+## How they compose
+
+```
+                    PRODUCT
+                       │
+          ┌────────────┴────────────┐
+    ux-direction              art-direction
+    user behaviour            visual language
+          └────────────┬────────────┘
+                  DESIGN SYSTEM
+```
+
+| Building | Sequence |
+|---|---|
+| App | `ux-direction` → `art-direction` → build |
+| Dashboard | `ux-direction` → `art-direction` → build |
+| Landing page | `art-direction` → build |
+
+Each skill declares its dependency and works alone. `art-direction` reads
+`UX-DIRECTION.md` if it exists and documents its assumptions if it does not;
+`ux-direction` respects an existing `ART-DIRECTION.md` and otherwise hands
+down functional constraints the visual design must satisfy.
+
+## Passes
+
+**ux-direction** — Understand · Structure · Validate
+→ `UX-DIRECTION.md`
+
+**art-direction** — Discover · Direct · Systemize · Build · Critique
+→ `ART-DIRECTION.md`, `DESIGN-TOKENS.md`
 
 ## Functionality wins
 
@@ -56,49 +93,65 @@ emotion, usability or brand memory.
 > A strange design that confuses people has failed.
 > A strange design that feels inevitable has succeeded.
 
-Inevitability is the target, not strangeness. There are hard floors — contrast
-ratios, `prefers-reduced-motion`, visible focus, touch targets — that no
-concept overrides.
+> The goal is not to make something nobody has seen.
+> The goal is to make something nobody could have made differently.
+
+There are hard floors — contrast ratios, `prefers-reduced-motion`, visible
+focus, keyboard reach, touch targets — that no concept overrides.
 
 ## Install
 
-Claude Code, per user:
-
 ```bash
-git clone https://github.com/audient-id4/art-direction-skill ~/.claude/skills/art-direction
+git clone https://github.com/audient-id4/design-skills /tmp/design-skills
+cp -r /tmp/design-skills/art-direction /tmp/design-skills/ux-direction ~/.claude/skills/
 ```
 
-Or per project, into `.claude/skills/art-direction`.
+Or copy either folder on its own — they do not depend on each other's files.
+For a single project, use `.claude/skills/` instead.
 
-Then invoke it with `/art-direction`, or just describe a design task — the
-description triggers it.
+Invoke with `/art-direction` or `/ux-direction`, or just describe the task —
+the descriptions trigger them.
 
-Other agents (Cursor, Codex, anything that reads a markdown instruction file):
-`SKILL.md` is self-contained. Paste it or point the tool at it.
+Other agents: each `SKILL.md` is self-contained markdown. Paste it or point
+the tool at it.
 
 ## Layout
 
 ```
-SKILL.md                            the process — four passes, rules, audit
-templates/ART-DIRECTION.md          intent: references, artifact, directions
-templates/DESIGN-TOKENS.md          values: type, space, geometry, motion, colour
-examples/ART-DIRECTION.example.md   a completed one, worked end to end
-examples/DESIGN-TOKENS.example.md   its tokens, every value with its role
-reference/typography.md             type directions and what each conveys
-reference/escapes.md                replacements for the patterns worth avoiding
+ux-direction/
+  SKILL.md                          three passes, structure, countable checks
+  templates/UX-DIRECTION.md
+  examples/UX-DIRECTION.example.md
+
+art-direction/
+  SKILL.md                          five passes, rules, audit
+  templates/ART-DIRECTION.md        intent: references, artifact, directions
+  templates/DESIGN-TOKENS.md        values: type, space, geometry, motion, colour
+  examples/ART-DIRECTION.example.md
+  examples/DESIGN-TOKENS.example.md
+  reference/typography.md           directions, open alternatives, licensing
+  reference/escapes.md              replacements for patterns worth avoiding
 ```
 
-`SKILL.md` loads when the skill is invoked. The reference files load only
-when something in them is needed, so the depth costs nothing until it is
-used.
+`SKILL.md` loads on invocation; reference files load only when needed, so the
+depth costs nothing until it is used.
 
-The example is a booking service for band rehearsal rooms, built from one
-artifact — a patch bay. Sockets become the availability grid, gaffer-tape
-labels become the annotation layer, and a drawn cable encodes booking
-duration. It exists to show the method producing an entire system from a
-single object: twelve references, three directions with two killed, tokens
-whose base unit is the socket pitch, and a functionality check on every
-distinctive decision.
+## The example
+
+All four example documents describe one product: **Backline**, a booking
+service for band rehearsal rooms.
+
+The UX document establishes that people think in *nights*, not calendar
+slots — which rules out a month view, hour-by-hour booking, and any flow
+where you pick a date before seeing availability. The art direction takes a
+**patch bay** as its artifact: sockets become the availability grid, gaffer
+tape becomes the annotation layer, and a drawn cable encodes booking duration.
+The tokens derive their base unit from the socket pitch.
+
+It exists to show both methods producing a whole system, and to show the
+handoff — the UX constraints ("dominant on first screen: availability";
+"never adjacent: cancel and book") are visible as visual decisions on the
+other side.
 
 ## Licence
 

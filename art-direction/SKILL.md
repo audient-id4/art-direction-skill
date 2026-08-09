@@ -16,6 +16,22 @@ filled every slot before anyone asked what the thing should feel like.
 This skill forces the question first, records the answer, and then checks
 the built result against it.
 
+## Dependency
+
+This skill defines **visual language**. It does not decide user flows,
+information architecture or interaction priorities.
+
+If `UX-DIRECTION.md` exists, it is upstream — read it first and treat it as
+settled. The primary action it names is what the composition must make
+dominant; the hierarchy it defines is the hierarchy the design expresses.
+
+If it does not exist, make reasonable assumptions about behaviour and write
+them down in `ART-DIRECTION.md` under **Assumed behaviour**, so the next
+person can see what the visual system was designed against and correct it.
+
+A landing page usually needs only this skill. Anything with flows, forms,
+empty states or destructive actions wants `ux-direction` run first.
+
 ## Functionality wins
 
 Read this before the rest, because everything below is subordinate to it.
@@ -36,12 +52,13 @@ a manifesto attached.
 
 ## The three passes
 
-**Pass 1 — Invent.** Gather references, find the artifact, write
+**Pass 1 — Discover.** Gather references, find the artifact, write
 `ART-DIRECTION.md`. No component code.
-**Pass 1.5 — Materialize.** Three directions from that concept. Choose one,
-kill two on the record. Then write `DESIGN-TOKENS.md`.
-**Pass 2 — Build.** Implement them. Both documents bind.
-**Pass 3 — Critique.** Render it, look at it, audit it, fix it.
+**Pass 2 — Direct.** Three directions from that concept. Choose one, kill two
+on the record.
+**Pass 3 — Systemize.** Write `DESIGN-TOKENS.md` from the winner.
+**Pass 4 — Build.** Implement them. Both documents bind.
+**Pass 5 — Critique.** Render it, look at it, audit it, fix it.
 
 The documents are the point. Without them, pass 1 is a nice paragraph that
 evaporates the moment implementation gets difficult, and pass 3 has nothing
@@ -59,7 +76,7 @@ Worked examples in `examples/`.
 
 ---
 
-## Pass 1 — Invent
+## Pass 1 — Discover
 
 ### Cast the net first: the inspiration map
 
@@ -149,7 +166,7 @@ intent from CSS.
 
 ---
 
-## Pass 1.5 — Materialize
+## Pass 2 — Direct
 
 One concept supports more than one interface. Before committing, sketch
 **three visual directions** from the artifact you chose, then pick one and
@@ -180,13 +197,35 @@ choices you refused. This kills alternatives — three directions that were all
 genuinely available. Different failure modes, both worth guarding: one is
 arriving at the generic, the other is stopping at the first idea.
 
-`DESIGN-TOKENS.md` is written after this, from the winner. Writing tokens
-before the direction is settled means tuning values for a design that is
-still moving.
+---
+
+## Pass 3 — Systemize
+
+Write `DESIGN-TOKENS.md` from the winning direction. Type, space, geometry,
+motion, colour — every value carrying its **role**, not just its number.
+
+Tokens come after the direction is settled, never before. Values tuned
+against a design that is still moving get tuned twice, and the second pass
+is always the one that reverts to round numbers.
+
+Two rules make the difference between a token file and a list of variables:
+
+**Every token states its job.** `radius-sm: 3px — sockets, because a jack
+socket is almost square` survives a review. `radius-sm: 3px` is a number
+nobody can argue with, which means nobody will, which means it will drift.
+
+**The base unit comes from something in the design.** The type size, a grid
+pitch, a component's height. A unit derived from the work holds up under
+pressure; one picked because it is round gets abandoned the first time it is
+inconvenient.
+
+If two tokens share a role, they are one token written twice — merge them.
+
+Template: `templates/DESIGN-TOKENS.md`.
 
 ---
 
-## Pass 2 — Build
+## Pass 4 — Build
 
 This is where concepts die. Implementation pressure pulls every value back
 toward the default, one reasonable-looking shortcut at a time. Two defences:
@@ -342,7 +381,7 @@ everything around it changed.
 
 ---
 
-## Pass 3 — Critique
+## Pass 5 — Critique
 
 ### Render it first
 
