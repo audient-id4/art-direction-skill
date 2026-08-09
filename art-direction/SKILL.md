@@ -1,6 +1,6 @@
 ---
 name: art-direction
-description: Design an interface with a visual language of its own instead of assembling one from defaults. Use when building a landing page, product UI, portfolio or marketing site where the look has to be distinctive — and whenever a design risks reading as template-generated. Runs a three-pass process that writes its art direction to disk before any code.
+description: Design an interface with a visual language of its own instead of assembling one from defaults. Use when building a landing page, product UI, portfolio or marketing site where the look has to be distinctive — and whenever a design risks reading as template-generated. Derives the visual language from the subject, writes ART-DIRECTION.md and DESIGN-TOKENS.md before any code, then audits the built result against them. For products with flows or forms, run ux-direction first.
 ---
 
 # Art direction
