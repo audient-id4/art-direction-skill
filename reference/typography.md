@@ -74,8 +74,10 @@ size relationship you designed instead of forcing a smaller display size.
   0.9–1.1 for display.
 - Negative tracking on large sizes, normal to slightly positive on small.
   Most faces are spaced for text and go gappy scaled up.
-- One real jump in the hierarchy beats four small ones. Display within 2× of
-  body reads flat.
+- One real jump in the hierarchy usually beats four small ones, and display
+  within 2× of body tends to read flat — but this is a warning, not a
+  threshold. A deliberately close scale is a legitimate direction if the
+  document says so and something else carries the hierarchy.
 - Optical alignment over mathematical. Hanging punctuation and a slight
   negative indent on a large quote are not fussiness; without them the block
   visibly does not start where it should.

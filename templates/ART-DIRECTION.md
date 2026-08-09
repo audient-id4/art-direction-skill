@@ -3,6 +3,35 @@
 Written before any component. Binding on implementation. Audited against in
 pass 3. Keep it in the repo next to the code it governs.
 
+Values live in `DESIGN-TOKENS.md`. This file is intent.
+
+---
+
+## Inspiration map
+
+Twelve references, none of them websites. Beside each, the one property that
+transfers — not the mood.
+
+**Physical objects**
+1. 
+2. 
+3. 
+
+**Architectural**
+1. 
+2. 
+3. 
+
+**Editorial**
+1. 
+2. 
+3. 
+
+**Motion**
+1. 
+2. 
+3. 
+
 ---
 
 ## Artifact
@@ -82,7 +111,8 @@ does not qualify.
 
 ## Rejection log
 
-Three obvious choices considered and killed.
+Three **obvious** choices considered and killed. This guards against arriving
+at the generic.
 
 | Obvious choice | Why rejected | Replaced with |
 |---|---|---|
@@ -92,18 +122,24 @@ Three obvious choices considered and killed.
 
 ---
 
-## Tokens
+## Directions considered (pass 1.5)
 
-The values this document commits to. Everything in the build traces back
-here; anything that cannot is a default that slipped in.
+Three genuine directions from the artifact above. This guards against
+stopping at the first idea. "Weaker" is not a reason.
 
-```
-radius     
-spacing    
-type       
-colour     
-motion     
-```
+**A —** 
+> dominant / quiet · geometry and spacing character · which property of the
+> artifact it leans on · what it is bad at
+
+**B —** 
+> 
+
+**C —** 
+> 
+
+**Chosen:** 
+**Rejected, and why:**
+> 
 
 ---
 

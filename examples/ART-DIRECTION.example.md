@@ -4,6 +4,32 @@ A booking service for band rehearsal rooms. Written as a worked example of
 the artifact method: nothing here was chosen because it looked nice, and the
 whole system falls out of one object.
 
+Values live in `DESIGN-TOKENS.example.md`.
+
+---
+
+## Inspiration map
+
+**Physical objects**
+1. Patch bay — a strict repeating grid of identical sockets
+2. Gaffer tape label — hand annotation stuck onto an engineered surface
+3. Drum key — a small object that is always the wrong size for its job
+
+**Architectural**
+1. Brutalist car park — repetition as structure, no ornament, honest concrete
+2. Loading bay at night — sodium light on wet ground, one hue doing all the work
+3. Scaffolding — a temporary grid that is more interesting than the building
+
+**Editorial**
+1. Punk gig flyer — photocopied, off-register, urgent
+2. Studio track sheet — a form filled in by hand, columns that must align
+3. Ordnance Survey map key — dense symbols readable at a glance, no decoration
+
+**Motion**
+1. A jack going into a socket — short travel, definite stop
+2. A patch cable falling into a curve — weight, one continuous line
+3. A soundcheck level meter — stepped, not smooth
+
 ---
 
 ## Artifact
@@ -142,15 +168,35 @@ does navigational work, which is what keeps it from being a gimmick.
 
 ---
 
-## Tokens
+## Directions considered (pass 1.5)
 
-```
-radius     socket 3 · panel 2 · label 0 · button 6 · photo 0
-spacing    unit 14 (socket pitch); labels intentionally 3–9 off-grid
-type       Fraunces 96/0.92/−0.03 · Fraunces 17/1.6/62ch · Commit Mono 13/1.5/+0.02
-colour     ground #151311 · sodium #E5622A (available only) · tape #D8CDBA · text #EFEAE2
-motion     socket spring 180 · stagger 40 · cable ease 320 · nothing else
-```
+**A — Patch bay.** The socket grid is the page; everything else is annotation
+around it. Dense, engineered, the grid dominant and the prose quiet. Leans on
+the artifact's repetition. *Bad at:* rooms with only one or two free hours
+look empty rather than scarce, and marketing copy has nowhere comfortable to
+live.
+
+**B — Track sheet.** The whole booking as a filled-in studio form: ruled
+rows, hand-written values in the boxes, columns that must align. Leans on the
+artifact's annotation half. *Bad at:* reads as admin. A form is what people
+are trying to avoid when they book a room, and it makes availability a table
+rather than a picture.
+
+**C — Flyer.** Off-register overprint, photocopy texture, huge condensed
+type, availability as a listings column down one edge. Leans on the
+subculture around the artifact rather than the object. *Bad at:* everything
+factual. Prices and times in a distressed treatment are hostile, and the
+concept fights the one job the product has.
+
+**Chosen: A**, with B's annotation layer grafted on as the tape labels. The
+socket grid answers the arrival question — *what is free* — in one screen,
+which is the only thing every visitor came for. The annotation keeps it from
+reading as a spreadsheet, which was A's real weakness.
+
+**Rejected, and why:** B lost because it turns a glance into a read — the
+information is identical and slower. C lost on the functionality test: it is
+the most distinctive of the three and it degrades comprehension of times and
+prices, which makes it novelty charging rent it cannot pay.
 
 ---
 

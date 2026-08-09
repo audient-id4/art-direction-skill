@@ -36,21 +36,53 @@ a manifesto attached.
 
 ## The three passes
 
-**Pass 1 — Invent.** Write `ART-DIRECTION.md`. No component code.
-**Pass 2 — Build.** Implement it. The document binds.
-**Pass 3 — Critique.** Audit against countable tests, then fix.
+**Pass 1 — Invent.** Gather references, find the artifact, write
+`ART-DIRECTION.md`. No component code.
+**Pass 1.5 — Materialize.** Three directions from that concept. Choose one,
+kill two on the record. Then write `DESIGN-TOKENS.md`.
+**Pass 2 — Build.** Implement them. Both documents bind.
+**Pass 3 — Critique.** Render it, look at it, audit it, fix it.
 
-The document is the point. Without it, pass 1 is a nice paragraph that
+The documents are the point. Without them, pass 1 is a nice paragraph that
 evaporates the moment implementation gets difficult, and pass 3 has nothing
-to judge against. Write the file before writing components, and keep it in
-the repo — the next person to touch the design needs it more than you do.
+to judge against. Write them before writing components, and keep them in the
+repo — the next person to touch the design needs them more than you do.
 
-Template: `templates/ART-DIRECTION.md`. Worked example:
-`examples/ART-DIRECTION.example.md`.
+Two files, because they answer different questions and rot at different
+speeds. `ART-DIRECTION.md` is intent: what this is, why, and what was
+rejected. `DESIGN-TOKENS.md` is the values that intent produced. Intent
+changes rarely; tokens get tuned. Mixing them means every tweak to a radius
+edits the document that was supposed to be stable.
+
+Templates: `templates/ART-DIRECTION.md`, `templates/DESIGN-TOKENS.md`.
+Worked examples in `examples/`.
 
 ---
 
 ## Pass 1 — Invent
+
+### Cast the net first: the inspiration map
+
+Before settling on anything, collect twelve references — and none of them
+from a website.
+
+- **3 physical objects** from or near this domain
+- **3 architectural references** — buildings, interiors, structures
+- **3 editorial references** — books, magazines, records, posters, signage
+- **3 motion references** — film, machinery, sport, dance, natural movement
+
+Beside each, one line: *what specifically transfers*. Not "the mood" — a
+property. The pitch of a grid. A joint detail. How a caption sits relative to
+its image. The way a mechanism arrives at rest.
+
+Two reasons for the rule against websites. Web references get copied at the
+surface, because the surface is already in the right medium and lifting it
+requires no translation. And a domain's real visual heritage is almost never
+on the web — it is in the objects and printed matter the field actually used
+before software arrived.
+
+Twelve is deliberately more than you need. Most will not survive; the point
+is range wide enough that the survivor was chosen rather than settled for.
 
 ### Derive from the subject, not from taste
 
@@ -58,9 +90,13 @@ Template: `templates/ART-DIRECTION.md`. Worked example:
 nothing to push against. So do not start from taste. Start from the thing
 itself.
 
-Name a physical artifact, a historical document or a working object that
-belongs to this domain. Then steal its visual logic — not its skeuomorphic
-surface.
+From the twelve references, promote **one** to primary: the physical
+artifact, historical document or working object whose logic the whole design
+will follow. The other eleven stay available as sources for individual
+details, but only one sets the system — two competing metaphors produce a
+design that argues with itself.
+
+Steal its visual logic, not its skeuomorphic surface.
 
 - A ticketing product → ticket stubs. Perforation as a divider. Seat maps
   as a layout grid. Serial numbers set in a monospace face.
@@ -110,6 +146,43 @@ This is not paperwork. The rule "if a decision looks obvious, find a better
 one" is unenforceable without evidence that alternatives were considered.
 The log is that evidence, and reviewing it is faster than reverse-engineering
 intent from CSS.
+
+---
+
+## Pass 1.5 — Materialize
+
+One concept supports more than one interface. Before committing, sketch
+**three visual directions** from the artifact you chose, then pick one and
+record why the other two lost.
+
+Not brainstorming. The purpose is to prove the final direction was *chosen*
+rather than arrived at — the first workable idea wins by default otherwise,
+and a first idea that happens to be good is indistinguishable, in the
+finished product, from one that was never tested.
+
+Each direction needs enough substance to be judged against the others:
+
+- what it makes dominant, and what it makes quiet
+- its geometry and spacing character in a sentence
+- which property of the artifact it leans on hardest
+- what it is bad at — every real direction is bad at something
+
+Sketch them however is fastest. Prose is legitimate; a paragraph per
+direction that a reader can picture beats three half-built components.
+
+Then choose, and write the two rejections down with reasons. "Weaker" is not
+a reason. *"Direction B put the grid full-bleed and the density read as a
+spreadsheet — the annotation layer had nowhere to sit, which is half the
+concept"* is a reason.
+
+**This is not the rejection log.** That one kills defaults — the obvious
+choices you refused. This kills alternatives — three directions that were all
+genuinely available. Different failure modes, both worth guarding: one is
+arriving at the generic, the other is stopping at the first idea.
+
+`DESIGN-TOKENS.md` is written after this, from the winner. Writing tokens
+before the direction is settled means tuning values for a design that is
+still moving.
 
 ---
 
@@ -260,19 +333,68 @@ everything around it changed.
 
 ## Pass 3 — Critique
 
-Look at the built result as four people: an Apple product designer, Dieter
-Rams, a working art director, and a hostile critic. Find at least five
-decisions that can be better. Fix them.
+### Render it first
 
-Then run the audit. These are countable, which is the point — "does it look
+A design is not finished when the code compiles. It is finished when the
+rendered pixels defend themselves.
+
+Run the thing. Capture desktop, tablet and mobile. Look at the images, not
+at the source — reading CSS tells you what you intended, and the whole
+purpose of this pass is to find where intent and result parted company.
+Anything that drives a browser will do.
+
+Then compare each screenshot against `ART-DIRECTION.md`. Go section by
+section and ask which document line each part of the composition is
+honouring. The parts nobody can account for are where the defaults crept
+back in, and they always do creep back in — usually in the places that were
+hardest to build.
+
+Mobile gets judged as its own composition, not as evidence that nothing
+overflowed.
+
+### Reference contamination
+
+Then check what you borrowed. "Does this look like Linear?" is unanswerable
+as asked, so name the signature instead — each of these products has traits
+specific enough to point at.
+
+| Borrowed from | What it actually is |
+|---|---|
+| Linear | near-black ground, high-chroma violet accent, 6–8px radii everywhere, very tight display tracking, hairline gradient borders |
+| Apple | system stack, huge centred display type, symmetric generous whitespace, full-bleed product photography, everything on axis |
+| Vercel | absolute black and white, mono for accents, triangle motif, chrome stripped to nothing, geometric sans |
+| Stripe | gradient mesh backgrounds, indigo-to-cyan, layered offset cards, code as hero content |
+| Notion | warm off-white ground, flat outline illustration, serif display over sans body, emoji as interface elements |
+| Arc | saturated multi-hue gradients, oversized playful rounding, spatial and depth metaphors |
+| Raycast | dark glass panels, keyboard-shortcut chips, small sharp radii, red-orange accent |
+| shadcn | neutral-950 ground, uniform `rounded-md`, muted 1px borders, Inter, card-and-badge vocabulary |
+
+For every row you recognise in your build, do not simply swap the value.
+Find out *why* it arrived: which decision was left unmade, so that a known
+solution filled the gap. Then answer that decision from the primary artifact.
+Changing violet to teal leaves Linear's design underneath wearing a different
+colour.
+
+Being similar in one respect is not automatically failure — dark grounds are
+not owned by anyone. Three or more rows matching is not similarity, it is a
+port.
+
+### Then the panel
+
+Look at the result as four people: an Apple product designer, Dieter Rams, a
+working art director, and a hostile critic. Find at least five decisions that
+can be better. Fix them.
+
+### Then the audit These are countable, which is the point — "does it look
 AI-generated" is not a question anyone answers honestly about their own work.
 
 | Test | Threshold |
 |---|---|
-| Distinct border-radius values | 3–5, each with a stated role |
+| Distinct border-radius values | 2–5, each with a stated role |
+| Display-to-body hierarchy | deliberate and stated in the document — big jumps encouraged, not required |
 | Top-level sections that are cards | under 40% |
-| Display-to-body size ratio | at least one jump ≥ 2.5× |
 | Gradients | ≤ 1, named in the document |
+| Contamination rows matching | ≤ 2 |
 | Elements breaking the grid | ≥ 1, deliberate |
 | Font families | ≤ 2, plus mono if the concept needs it |
 | Icons with an adjacent label saying the same thing | 0 |
@@ -330,3 +452,16 @@ Between safe-and-familiar and unusual-and-coherent, take coherent. Between
 more decoration and stronger composition, take composition. Between the
 popular pattern and the new idea, try the idea first — and keep it only if
 it survives pass 3.
+
+And the test that contains every other one here:
+
+> The goal is not to make something nobody has seen.
+> The goal is to make something nobody could have made differently.
+
+Novelty is easy and worth little; anyone can be strange on purpose. What is
+hard is a design so completely answered by its subject that every other
+version looks like a version — where the type, the geometry, the colour and
+the motion could not be swapped for alternatives without the thing becoming
+about something else. That is why the artifact comes before taste, why three
+directions get compared, and why the rejected ones are written down. Not to
+prove the result is original. To prove it was inevitable.
