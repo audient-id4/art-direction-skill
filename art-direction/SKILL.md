@@ -498,9 +498,31 @@ An icon next to a label that already says the same thing is noise. If you do
 use a set, use one set — mixed icon styles read as assembled from parts,
 because they were.
 
-Emoji: native system rendering or none. No packs, no 3D, no Twemoji mixed
-with system glyphs. Emoji as spacing filler is the most obvious AI tell there
-is, and it is worth checking for explicitly.
+Emoji as spacing filler is the most obvious generated-design tell there is,
+and worth checking for explicitly. If they are not carrying meaning, none.
+
+When they are, one set, never mixed. Two ways, and the first is usually
+right:
+
+**System rendering.** `font-family: "Apple Color Emoji", "Segoe UI Emoji",
+"Noto Color Emoji"`. Everyone gets the set their own device draws, which is
+the set they already read fluently. Costs nothing, loads nothing, never
+breaks.
+
+The instinct to force Apple's set on every platform is worth resisting: it
+is the prettiest set, but on Windows it makes the glyphs read as foreign to
+that reader rather than native — the opposite of belonging to one ecosystem.
+
+**A shipped image set**, only when the same glyph must be identical
+everywhere — a product screenshot, a brand mark, a legend where the shape
+carries meaning. Then use an openly licensed set: **Noto Emoji** (OFL),
+**OpenMoji** (CC BY-SA) or **Fluent Emoji** (MIT). Apple's artwork is
+licensed to Apple; packages that redistribute it as PNGs are widely used and
+are not clean, and a commercial client site is the wrong place to find out
+how much that matters.
+
+Self-host whichever you pick. An emoji set on a third-party CDN is a
+dependency in the critical path that disappears in whole countries.
 
 ### Motion
 
@@ -581,6 +603,44 @@ hardest to build.
 Mobile gets judged as its own composition, not as evidence that nothing
 overflowed.
 
+### The generated defaults
+
+Check this before the contamination table, because it catches a different
+disease. Contamination is copying a specific product. This is landing on
+what *every model produces right now*, having copied nobody.
+
+Generated design currently clusters into three looks. They appear regardless
+of subject, which is the tell:
+
+| Cluster | What it is |
+|---|---|
+| **Warm editorial** | cream ground near `#F4F1EA`, high-contrast serif display, terracotta accent, generous whitespace |
+| **Acid dark** | near-black ground, one bright acid-green or vermilion accent, everything else grey |
+| **Broadsheet** | hairline rules, zero border-radius, dense newspaper columns, monospace annotation, plate numbers |
+
+All three are legitimate for some briefs. Where the brief asks for one, give
+it — the brief always wins. Where the brief leaves the axis free, **do not
+spend that freedom on one of these**, because the freedom is the only place a
+choice could have been made.
+
+Two things make this check worth running separately from the contamination
+table:
+
+It catches convergence rather than imitation. You can arrive at the cream
+ground honestly, with a reasoning chain you believe, and still be sitting in
+the same square as everything else generated that week. A good justification
+is not evidence of a distinctive result; it is what makes the default
+invisible.
+
+And it catches both directions of the earlier failure. A world-building
+platform drawn as drafting mylar — plate numbers, hairlines, zero radius — is
+cluster three. Redrawn on warm paper with a serif, it becomes cluster one.
+Two attempts, opposite in character, both landing on this list, neither
+copying anyone.
+
+If a cluster matches, do not repaint it. Ask which decision was left open,
+and answer it from the artifact.
+
 ### Reference contamination
 
 Then check what you borrowed. "Does this look like Linear?" is unanswerable
@@ -624,6 +684,7 @@ AI-generated" is not a question anyone answers honestly about their own work.
 | Top-level sections that are cards | under 40% |
 | Gradients | ≤ 1, named in the document |
 | Contamination rows matching | ≤ 2 |
+| Generated-default cluster matched | 0, unless the brief asked for it |
 | Elements breaking the grid | ≥ 1, deliberate |
 | Font families | ≤ 2, plus mono if the concept needs it |
 | Display face swapped for a system font | identity visibly degrades |
